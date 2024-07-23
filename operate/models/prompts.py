@@ -30,7 +30,12 @@ You have 4 possible operation actions available to you. The `pyautogui` library 
 [{{ "thought": "write a thought here", "operation": "press", "keys": ["keys to use"] }}]
 ```
 
-4. done - The objective is completed
+4. write_personal_field - Write personal information in a form field
+```
+[{{ "thought": "write a thought here", "operation": "write_personal_field", "field": "field name or description" }}]
+```
+
+5. done - The objective is completed
 ```
 [{{ "thought": "write a thought here", "operation": "done", "summary": "summary of what was completed" }}]
 ```
@@ -54,6 +59,13 @@ Example 2: Focuses on the address bar in a browser before typing a website
     {{ "thought": "I'll focus on the address bar in the browser. I can see the browser is open so this should be safe to try", "operation": "press", "keys": [{cmd_string}, "l"] }},
     {{ "thought": "Now that the address bar is in focus I can type the URL", "operation": "write", "content": "https://news.ycombinator.com/" }},
     {{ "thought": "I'll need to press enter to go the URL now", "operation": "press", "keys": ["enter"] }}
+]
+```
+Example 3: Fill out a job application field when the job application is already open
+```
+[
+    {{ "thought": "I can see an empty form field with labeled 'first name'. I click that field to fill the field", "operation": "click", "text": "first name" }},
+    {{ "thought": "Now that the form field is in focus I can type my personal information", "operation": "write_personal_field", "field": "first name" }},
 ]
 ```
 
@@ -86,7 +98,12 @@ You have 4 possible operation actions available to you. The `pyautogui` library 
 [{{ "thought": "write a thought here", "operation": "press", "keys": ["keys to use"] }}]
 ```
 
-4. done - The objective is completed
+4. write_personal_field - Write personal information in a form field
+```
+[{{ "thought": "write a thought here", "operation": "write_personal_field", "field": "field name or description" }}]
+```
+
+5. done - The objective is completed
 ```
 [{{ "thought": "write a thought here", "operation": "done", "summary": "summary of what was completed" }}]
 ```
@@ -118,6 +135,13 @@ Example 3: Send a "Hello World" message in the chat
     {{ "thought": "Now that I am focused on the message field, I'll go ahead and write ", "operation": "write", "content": "Hello World" }},
 ]
 ```
+Example 4: Fill out a job application field when the job application is already open
+```
+[
+    {{ "thought": "I can see an empty form field with labeled 'first name'. I click that field to fill the field", "operation": "click", "text": "first name" }},
+    {{ "thought": "Now that the form field is in focus I can type my personal information", "operation": "write_personal_field", "field": "first name" }},
+]
+```
 
 A few important notes: 
 
@@ -140,7 +164,7 @@ You have 4 possible operation actions available to you. The `pyautogui` library 
 ```
 [{{ "thought": "write a thought here", "operation": "click", "text": "The text in the button or link to click" }}]  
 ```
-2. write - Write with your keyboard
+2. write - Write with your keyboard, not for filling form fields
 ```
 [{{ "thought": "write a thought here", "operation": "write", "content": "text to write here" }}]
 ```
@@ -148,7 +172,11 @@ You have 4 possible operation actions available to you. The `pyautogui` library 
 ```
 [{{ "thought": "write a thought here", "operation": "press", "keys": ["keys to use"] }}]
 ```
-4. done - The objective is completed
+4. write_personal_field - Write personal information in a form field with your keyboard
+```
+[{{ "thought": "write a thought here", "operation": "write_personal_field", "field": "field name or description" }}]
+```
+5. done - The objective is completed
 ```
 [{{ "thought": "write a thought here", "operation": "done", "summary": "summary of what was completed" }}]
 ```
@@ -175,12 +203,13 @@ Example 2: Open a new Google Docs when the browser is already open
 ]
 ```
 
-Example 3: Search for someone on Linkedin when already on linkedin.com
+Example 3: Fill out a job application field when the job application is already open
 ```
 [
-    {{ "thought": "I can see the search field with the placeholder text 'search'. I click that field to search", "operation": "click", "text": "search" }},
-    {{ "thought": "Now that the field is active I can write the name of the person I'd like to search for", "operation": "write", "content": "John Doe" }},
-    {{ "thought": "Finally I'll submit the search form with enter", "operation": "press", "keys": ["enter"] }}
+    {{ "thought": "I can see an empty form field with labeled 'first name'. I click that field to fill the field", "operation": "click", "text": "first name" }},
+    {{ "thought": "Now that the form field is in focus I can type my personal information", "operation": "write_personal_field", "field": "First Name" }},
+    {{ "thought": "Clicking on the 'Email' field to continue filling out the job application form.", "operation": "click", "text": "Email" }},
+    {{ "thought": "Writing email in the email field", "operation": "write_personal_field", "field": "Email" }},
 ]
 ```
 

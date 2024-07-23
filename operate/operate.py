@@ -4,6 +4,7 @@ import time
 import asyncio
 from prompt_toolkit.shortcuts import message_dialog
 from prompt_toolkit import prompt
+from operate.utils.get_personal_info import get_personal_info
 from operate.exceptions import ModelNotRecognizedException
 import platform
 
@@ -160,6 +161,11 @@ def operate(operations, model):
             operate_detail = click_detail
 
             operating_system.mouse(click_detail)
+        elif operate_type == "write_personal_field":
+            field = operation.get("field")
+            operate_detail = field
+            personal_info = get_personal_info(field) 
+            operating_system.write(personal_info)
         elif operate_type == "done":
             summary = operation.get("summary")
 
